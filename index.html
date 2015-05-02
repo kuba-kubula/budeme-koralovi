@@ -35,9 +35,11 @@
     </ul>
   </nav>
 
-  <div class="debug">
-    <label><input type="checkbox"> Debug</label>
-  </div>
+  <!--
+    <div class="debug">
+      <label><input type="checkbox"> Debug</label>
+    </div>
+  -->
 
   <div id="page" class="parallax">
     <div id="top" class="parallax__group"><a name="top"></a>
@@ -88,8 +90,12 @@
       </div>
       <div class="parallax__layer parallax__layer--back">
         <div class="title">
-          <img width="320" class="photosImg" src="strakonice/sin.jpg" alt="">
-          <img width="320" class="photosImg" src="strakonice/letecka.jpg" alt="">
+          <div class="flexRow">
+            <img height="426" width="640" class="photosImg" src="strakonice/hrad.jpg" />
+            <img height="426" width="640" class="photosImg" src="strakonice/letecka.jpg" />
+            <img height="426" width="640" class="photosImg" src="strakonice/sin.jpg" />
+            <img height="426" width="640" class="photosImg" src="strakonice/sin2.jpg" />
+          </div>
         </div>
       </div>
     </div>
@@ -129,20 +135,22 @@
     </div>
 
     <div id="money" class="parallax__group">
-      <div class="parallax__layer parallax__layer--fore">
+      <div class="parallax__layer parallax__layer--base">
         <div class="title"><a id="dary" name="dary"></a>
           <h2>Dárky a dary</h2>
-          <p>
-            Pokud nám chcete tak moc dávat nějaké hezké dárky,
-            můžete nám třeba přispět do kasičky libovolným finančním obnosem.
-          </p>
-          <p>
-            Třeba nás ta svatební cesta bude pak víc bavit.
-          </p>
+          <div class="aroundPiggy">
+            <span class="piggy"></span>
+            <div class="paras">
+              <p>
+                Pokud nám chcete tak moc dávat nějaké hezké dárky,
+                můžete nám třeba přispět do kasičky libovolným finančním obnosem.
+              </p>
+              <p>
+                Třeba nás ta svatební cesta bude pak víc bavit.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="parallax__layer parallax__layer--back">
-        <div class="title moneyBg"></div>
       </div>
     </div>
 
@@ -150,6 +158,8 @@
       <div class="parallax__layer parallax__layer--base">
         <div class="title"><a id="mapy" name="mapy"></a>
           <h2>Mapy</h2>
+          <p>Nejdřív jedna přehledná mapa, pak detail místa svatebního obřadu a nakonec jeden průlet nad místem odpoledně-noční zábavy.</p>
+          <p>Klikněte si pro zvětšení</p>
           <div class="allMaps">
               <a href="#map_overview">
                 <img tabindex="0" height="610" width="1340" src="maps/overview.png" />
@@ -175,108 +185,22 @@
 
   </div>
 
-<script>
-(function(){
-  var scrollToAnimated;
-  var scrollToHref;
-  var debugInput = document.querySelector("input");
-
-  function updateDebugState() {
-      (document.body || document.documentElement).classList.toggle('debug-on', debugInput.checked);
-  }
-  debugInput.addEventListener("click", updateDebugState);
-
-  updateDebugState();
-
-  scrollToHref = function (hash) {
-    hash = hash.replace('/', '');
-    var offTop, howMuch, bodyH, el = document.querySelector('a[name="' + hash + '"]');
-    if (!el) {
-      return false;
-    }
-    offTop = 0;
-    while (el.parentNode) {
-      offTop += (el.offsetTop || 0);
-      el = el.parentNode;
-    }
-    bodyH = document.querySelector('body').offsetHeight;
-    if (!bodyH) {
-      bodyH = document.querySelector('html').offsetHeight;
-    }
-    howMuch = 0;
-    if (bodyH) {
-      howMuch = Math.floor(offTop / bodyH) * bodyH;
-      setTimeout(function () {
-        scrollToAnimated(howMuch, 400);
-      }, 30);
-    }
-  }
-
-  var scrollInt = null;
-
-  scrollToAnimated = function (finalDestination, howLong) {
-    var $el = document.getElementById('page');
-    var activePoint = parseInt($el.scrollTop, 10);
-    var endPoint = parseInt(finalDestination, 10);
-    var movePerFrame = (endPoint - activePoint) / Math.round(howLong / 16.6667);
-    if (scrollInt) {
-      clearInterval(scrollInt);
-      scrollInt = null;
-    }
-    scrollInt = setInterval(function () {
-      activePoint += movePerFrame;
-      if (Math.abs(endPoint - activePoint) <= Math.abs(movePerFrame)) {
-        $el.scrollTop = endPoint;
-        clearInterval(scrollInt);
-        return;
-      }
-      $el.scrollTop = activePoint;
-    }, 16.6667);
-  }
-
-  if (window.location.href.indexOf('#') > -1) {
-    scrollToHref(window.location.hash.split('#').pop())
-  }
-
-  window.onscroll = function () {
-    if (scrollInt) {
-      clearInterval(scrollInt);
-      scrollInt = null;
-    }
-  }
-
-  var navs = [].slice.call(document.querySelectorAll('nav a'), 0);
-  navs.forEach(function(el){
-    (function(el){
-      el.onclick = function (e) {
-        e.preventDefault();
-        var hsh = el.getAttribute('href').split('#').pop();
-        if (window.location.href.split('#').pop() === ('/' + hsh)) {
-          return false;
-        }
-        scrollToHref(hsh);
-        window.location.hash = '/' + hsh;
-      }
-    })(el);
-  });
-
-})();
-</script>
+<script src="js/clouds.js"></script>
 
 <div class="lightbox" id="map_overview">
-  <a href="#~" data-some="(H)rad Strakonice, u (L)ucky doma, (B)enešovský mlýn">
+  <a href="#/mapy" data-some="(H)rad Strakonice, u (L)ucky doma, (B)enešovský mlýn">
     <img height="610" width="1340" src="maps/overview.png" />
   </a>
 </div>
 
 <div class="lightbox" id="map_strakonice">
-  <a href="#~" data-some="Detail Strakonice - (H)rad, (P)arkoviště">
+  <a href="#/mapy" data-some="Detail Strakonice - (H)rad, (P)arkoviště">
     <img height="616" width="764" src="maps/strakonice.png" />
   </a>
 </div>
 
 <div class="lightbox" id="map_detail">
-  <a href="#~" data-some="Detail Heřmaň - u (L)ucky doma, (B)enešovský mlýn">
+  <a href="#/mapy" data-some="Detail Heřmaň - u (L)ucky doma, (B)enešovský mlýn">
     <img height="608" width="1072" src="maps/detail.png" />
   </a>
 </div>

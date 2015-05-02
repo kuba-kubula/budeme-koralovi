@@ -38,6 +38,12 @@ table{border-collapse:collapse;border-spacing:0}
 [hidden~=screen]:not(:active):not(:focus):not(:target){clip:rect(0 0 0 0)!important;position:absolute!important}
 }
 
+body
+  a
+    color saturate(steelblue, 20)
+    text-decoration underline
+  a:hover
+    color darken(saturate(steelblue, 20), 20)
 
 body
   background #fff
@@ -86,6 +92,7 @@ body
     background-color rgba(#fff, 0.95)
     padding 10px 5px 7px
     color #009933
+    text-decoration none
     border-bottom 3px solid rgba(#fff, 0.001)
     animate('border-bottom-color background-color')
     &:active
@@ -276,13 +283,27 @@ img
 .inlineB
   display inline-block
 
-.photosImg
-  padding 10px
-  display inline-block
-  border-radius 30px
+.flexRow
+  display flex
+  flex-flow row
+  flex-wrap wrap
+  min-width 680px
+  box-sizing border-box
+  padding 0 5px
+  justify-content space-around
+  @media screen and (max-width:760px)
+    min-width 480px
 
-  & + .photosImg
-    padding-left 0
+.photosImg
+  flex 1 1 45%
+  margin 10px 5px 0
+  max-width 50%
+  height auto
+  box-sizing border-box
+  display inline-block
+  border-radius 25px
+  @media screen and (max-width:760px)
+    max-width 100%
 
 .clouds
   transform translate3d(0,0,0)
@@ -330,8 +351,8 @@ img
 #maps2
   z-index 3 /* slide over group 2 and 4 */
 
-#maps .parallax__layer--back
-  z-index 3
+// #maps .parallax__layer--back
+//   z-index 3
 //   AIzaSyCdXDCC-ZXXpEOMMV1abxudnXDqi3m9TsE
 //   http://mapy.cz/s/hGIu
 //   http://maps.google.com/maps/api/staticmap?zoom=14&maptype=roadmap&markers=color:purple|label:B|49.235338,14.154596&markers=color:red|label:L|49.2320121,14.13303&size=512x300&sensor=false&scale=2
@@ -345,17 +366,18 @@ img
   display flex
   max-width 900px
   min-width 640px
-  width 95%
+  width 100%
   flex-flow row
   flex-wrap wrap
   align-items center
-  justify-content space-around
+  justify-content space-between
   @media screen and (max-width:760px)
     min-width 480px
 
   a
+    cursor pointer
     @media screen and (max-width:760px)
-      flex 1 1 90%
+      flex 1 1 95%
     flex 1 1 30%
     box-sizing border-box
     display flex
@@ -364,7 +386,7 @@ img
     opacity 0.7
     outline none
     box-sizing border-box
-    border 1px solid #fff
+    border 5px solid #fff
     &:hover
     &:focus
     &:active
@@ -391,6 +413,7 @@ img
   text-align center
 
   a
+    text-decoration none
     margin 0 auto
     display flex
     align-items center
@@ -542,7 +565,7 @@ for i in (0..9) // '11' '12' '13' '14' '15' '16')
     // animation-delay round($delay, 1)s
 
 #party
-  z-index 3 /* slide under group 3 and 5 */
+  z-index 4 /* slide under group 3 and 5 */
   .title
     text-align left
     min-width 20em
@@ -569,9 +592,33 @@ for i in (0..9) // '11' '12' '13' '14' '15' '16')
 
 
 #money
-  z-index 2 /* slide over group 4 and 6 */
+  z-index 3 /* slide over group 4 and 6 */
 #money .parallax__layer--back
   z-index 2
-  // .moneyBg
-  //   background-color red
+  .moneyBg
+    padding 20px
+    min-width 480px
+    max-width 700px
+    min-height 40%
+    max-height 50%
+.aroundPiggy
+  display flex
+  width 100%
+  box-sizing border-box
+  align-items stretch
+  justify-content flex-start
+
+  .paras
+    align-self flex-start
+    text-align left
+    flex 1 1 auto
+
+  .piggy
+    margin 20px 10px 10px 10px
+    flex 1 1 40%
+    display block
+    min-height 200px
+    min-width 300px
+    background #fff url('svg/piggy.svg') center no-repeat
+    background-size contain
 

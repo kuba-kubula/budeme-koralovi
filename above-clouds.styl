@@ -330,13 +330,107 @@ img
 #maps2
   z-index 3 /* slide over group 2 and 4 */
 
-#maps .parallax__layer--base
-  // background url('https://maps.googleapis.com/maps/api/staticmap?center=49.2368582,14.1551861&scale=2&zoom=13&format=png&sensor=false&size=1024x1024&maptype=roadmap&visual_refresh=true&style=visibility:on%7Csaturation:30&style=feature:poi%7Cvisibility:simplified&style=feature:transit%7Cvisibility:full&style=feature:transit.station%7Cvisibility:on&markers=color:0x5f5cf6%7CHerman+Pisek+Czech+Republic') center no-repeat
-  background-size cover
+#maps .parallax__layer--back
+  z-index 3
+//   AIzaSyCdXDCC-ZXXpEOMMV1abxudnXDqi3m9TsE
+//   http://mapy.cz/s/hGIu
+//   http://maps.google.com/maps/api/staticmap?zoom=14&maptype=roadmap&markers=color:purple|label:B|49.235338,14.154596&markers=color:red|label:L|49.2320121,14.13303&size=512x300&sensor=false&scale=2
+//   background url('https://maps.googleapis.com/maps/api/staticmap?center=49.2368582,14.1551861&scale=2&zoom=13&format=png&sensor=false&size=1024x1024&maptype=roadmap&visual_refresh=true&style=visibility:on%7Csaturation:30&style=feature:poi%7Cvisibility:simplified&style=feature:transit%7Cvisibility:full&style=feature:transit.station%7Cvisibility:on&markers=color:0x5f5cf6%7CHerman+Pisek+Czech+Republic') center no-repeat
 
 // #whoweare
 //   .parallax__layer--back
 //     background-image url()
+
+.allMaps
+  display flex
+  max-width 900px
+  min-width 640px
+  width 95%
+  flex-flow row
+  flex-wrap wrap
+  align-items center
+  justify-content space-around
+  @media screen and (max-width:760px)
+    min-width 480px
+
+  a
+    @media screen and (max-width:760px)
+      flex 1 1 90%
+    flex 1 1 30%
+    box-sizing border-box
+    display flex
+    align-items stretch
+    align-self stretch
+    opacity 0.7
+    outline none
+    box-sizing border-box
+    border 1px solid #fff
+    &:hover
+    &:focus
+    &:active
+      outline none
+      opacity 1
+  img
+    align-self center
+    max-width 100%
+    height auto
+    display inline-block
+
+.lightbox
+  position fixed
+  opacity 0
+  z-index 9999
+  top -100%
+  left 0
+  width 100%
+  height 100%
+  background-color rgba(#000,0.5)
+  animate(opacity)
+  display flex
+  align-items center
+  text-align center
+
+  a
+    margin 0 auto
+    display flex
+    align-items center
+    z-index 9999
+    line-height 1.0
+    position relative
+    background-color red
+
+  img
+    flex 1 1 100%
+    display block
+    max-width 100%
+    height auto
+    z-index 9999
+
+  a:after
+    z-index 9999
+    content attr(data-some)
+    position absolute
+    top -30px
+    line-height 40px
+    text-align center
+    left 0
+    right 0
+    height 40px
+    color #fff
+    font-weight bold
+    background-color #000000
+    font-size 24px
+
+
+.lightbox:target
+  opacity 1
+  outline none
+  top 0
+  left 0
+  right 0
+  bottom 0
+  overflow hidden
+
 
 @keyframes wiggles
   0%
@@ -476,8 +570,9 @@ for i in (0..9) // '11' '12' '13' '14' '15' '16')
 
 
 #money
-  z-index 4 /* slide over group 4 and 6 */
+  z-index 2 /* slide over group 4 and 6 */
 #money .parallax__layer--back
+  z-index 2
   .moneyBg
     background-color red
 

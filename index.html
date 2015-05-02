@@ -51,7 +51,7 @@
         </div>
         <span class="clouds"></span>
       </div>
-      <div class="parallax__layer parallax__layer--deep">
+      <div class="parallax__layer parallax__layer--deep containsPhotosAll">
         <div class="photosAll">
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
@@ -61,9 +61,8 @@
     </div>
 
     <div id="whoweare" class="parallax__group">
-      <a id="svatba" name="svatba"></a>
       <div class="parallax__layer parallax__layer--base">
-        <div class="title">
+        <div class="title"><a id="svatba" name="svatba"></a>
           <h2>Svatba</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum dolore accusamus, minus incidunt provident culpa deserunt reiciendis enim obcaecati sapiente dolores doloribus, nobis autem laudantium qui facere corporis, eligendi at.</p>
           <span class="graphics">
@@ -71,8 +70,6 @@
             <span style="top: 60px; left: 10px" class="sky"></span>
           </span>
         </div>
-      </div>
-      <div class="parallax__layer parallax__layer--back">
       </div>
     </div>
 
@@ -84,7 +81,7 @@
           <p>A protože na obřad máme jen 30 minut, prosíme všechny, aby byli na místě aspoň 15 minut předem.</p>
           <p>Pokud chcete jet v &ldquo;koloně&rdquo;, můžete vyrazit s&nbsp;dalšími auty z&nbsp;Heřmaně, od&nbsp;Lucky.</p>
           <span class="graphics">
-            <span style="top: 90px; right: -100px" class="fire"></span>
+            <span style="top: 90px; right: -140px" class="fire"></span>
             <span style="bottom: 0%; left: -40px" class="meadow"></span>
           </span>
         </div>
@@ -98,9 +95,8 @@
     </div>
 
     <div id="party" class="parallax__group">
-      <a id="oslava" name="oslava"></a>
       <div class="parallax__layer parallax__layer--base">
-        <div class="title">
+        <div class="title"><a id="oslava" name="oslava"></a>
           <h2>Oslava</h2>
           <p>Místo oslavy: <strong><a href="http://www.benesovskymlyn.cz">Penzion Benešovský mlýn</a></strong><br />Heřmaň 37</p>
           <p>Zajistili jsme ubytování na penzionu a v bungalovech (chatkách s umyvadly a společným sociálním zařízením, více viz <a href="http://benesovskymlyn.cz/?page_id=24">web</a>), takže pokud chcete, můžete zůstat přes noc.<br />Jen nám to napište s dostatečným předstihem.</p>
@@ -133,9 +129,8 @@
     </div>
 
     <div id="money" class="parallax__group">
-      <a id="dary" name="dary"></a>
       <div class="parallax__layer parallax__layer--fore">
-        <div class="title">
+        <div class="title"><a id="dary" name="dary"></a>
           <h2>Dárky a dary</h2>
           <p>
             Pokud nám chcete tak moc dávat nějaké hezké dárky,
@@ -152,9 +147,8 @@
     </div>
 
     <div id="maps" class="parallax__group">
-      <a id="mapy" name="mapy"></a>
       <div class="parallax__layer parallax__layer--base">
-        <div class="title">
+        <div class="title"><a id="mapy" name="mapy"></a>
           <h2>Mapy</h2>
         </div>
       </div>
@@ -184,7 +178,7 @@
   updateDebugState();
 
   scrollToHref = function (hash) {
-    hash = hash.replace('!/', '');
+    hash = hash.replace('/', '');
     var offTop, howMuch, bodyH, el = document.querySelector('a[name="' + hash + '"]');
     if (!el) {
       return false;
@@ -246,11 +240,11 @@
       el.onclick = function (e) {
         e.preventDefault();
         var hsh = el.getAttribute('href').split('#').pop();
-        if (window.location.href.split('#').pop() === ('!/' + hsh)) {
+        if (window.location.href.split('#').pop() === ('/' + hsh)) {
           return false;
         }
         scrollToHref(hsh);
-        window.location.hash = '!/' + hsh;
+        window.location.hash = '/' + hsh;
       }
     })(el);
   });

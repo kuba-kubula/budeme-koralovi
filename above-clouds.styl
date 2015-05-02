@@ -69,7 +69,7 @@ body
     line-height 26px
     border-bottom 1px solid rgba(#000,0.05)
     box-sizing border-box
-    border-right 1px solid rgba(#000,0.05)
+    border-right 1px solid #e5e5e5
     font-size 20px
     font-weight bold
     &:last-child
@@ -130,12 +130,15 @@ body
   overflow-x hidden
   overflow-y auto
   perspective 300px
-  background-image url(spacer.gif) repeat
+  box-sizing border-box
+  padding-bottom 50px
+  z-index 6
 
 .parallax__group
   position relative
   height 500px /* fallback for older browsers */
   height 100vh
+  overflow visible
   transform-style preserve-3d
 
 .parallax__layer
@@ -216,6 +219,8 @@ html
 body
   background #fff url(above-clouds-min.jpg) center bottom no-repeat
   background-size cover
+  @media screen and (max-width:640px)
+    background-image linear-gradient(top, #A1BED0, #D9D7D6)
 
 .luckaKuba
   font-size 22px
@@ -246,7 +251,7 @@ body
 
 
 #top
-  z-index 1 /* slide over group 2 */
+  z-index 2 /* slide over group 2 */
 
 
 #whoweare
@@ -280,6 +285,7 @@ img
     padding-left 0
 
 .clouds
+  transform translate3d(0,0,0)
   position absolute
   pointer-events none
   bottom 0
@@ -296,7 +302,7 @@ img
 
 .clouds:before
 .clouds:after
-  z-index -1
+  z-index 11
   position absolute
   left 0
   bottom 0
@@ -318,9 +324,10 @@ img
 // #top
 
 #info
-  z-index 5 /* slide under groups 1 and 3 */
+  z-index 4 /* slide under groups 1 and 3 */
 
 #maps
+#maps2
   z-index 3 /* slide over group 2 and 4 */
 
 #maps .parallax__layer--base
@@ -331,16 +338,54 @@ img
 //   .parallax__layer--back
 //     background-image url()
 
+@keyframes wiggles
+  0%
+    transform translate3d(0, 0, -1.5px)
+  25%
+    transform translate3d(0, 0, -5px)
+  50%
+    transform translate3d(0, 0, -1.5px)
+  75%
+    transform translate3d(0, 0, -5px)
+  to
+    transform translate3d(0, 0, -1.5px)
+
+@keyframes antiwiggles
+  0%
+    transform translate3d(0, 0, 1.5px)
+  25%
+    transform translate3d(0, 0, 5px)
+  50%
+    transform translate3d(0, 0, 1.5px)
+  75%
+    transform translate3d(0, 0, 5px)
+  to
+    transform translate3d(0, 0, 1.5px)
+
+.containsPhotosAll
+  perspective 300px
+  position absolute
+  left 0
+  top 0
+  right 0
+  overflow visible
+
 .photosAll
+  transform translate3d(0, 0, -1.5px)
+  animation wiggles 3s ease 4s infinite normal forwards
+  transform-style preserve-3d
+  backface-visibility hidden
   display flex
   position absolute
-  top 50px
+  top 60px
   left 0
   right 0
+  overflow visible
   align-items center
   justify-content space-around
   flex-flow row
   flex-wrap wrap
+  z-index 1
 
 .photosAll div
   flex 1 1 15%
@@ -349,21 +394,33 @@ img
   background-size contain
   margin 30px 20px 0
   min-height 320px
+  opacity 1
+  // animation antiwiggles 3s ease 4s infinite forwards
+  transform translate3d(0, 0, 1.5px)
+
+.photosAll div
   opacity 0
+  animation-name pulse,antiwiggles
+  animation-duration 3s,3s
+  animation-easing-function ease,ease
+  animation-delay 1s,4s
+  animation-iteration-count 1,infinite
+  animation-direction normal,normal
+  animation-fill-mode forwards,forwards
 
 
 @keyframes pulse
   0%
     opacity 0
   100%
-    opacity 0.95
+    opacity 1
 
 $all = 10 + 10 + 10
 
 $delay = 0
 
 .photosAll div
-  animation pulse 3s ease 1s 1 forwards
+  // animation pulse 3s ease 1s 1 forwards
   @media screen and (max-width:1160px)
     flex 1 1 auto
     max-heigth 320px
@@ -374,23 +431,25 @@ for i in (0..9) // '11' '12' '13' '14' '15' '16')
     background-image url('photos/oba' + base-convert(i+1, 10, 2) + '.jpg')
     $size = image-size('photos/oba' + base-convert(i+1, 10, 2) + '.jpg')
     size ($size[0]/2) ($size[1]/2)
-    $delay = $delay + round(random(4, 10) / 3, 1)
-    animation-delay round($delay, 1)s
+    // $delay = $delay + round(random(4, 10) / 3, 1)
+    // animation-delay round($delay, 1)s
+
   .photosAll div:nth-child({$all}n+{$v + 1})
     background-image url('photos/lucka' + base-convert(i+1, 10, 2) + '.jpg')
     $size = image-size('photos/lucka' + base-convert(i+1, 10, 2) + '.jpg')
     size ($size[0]/2) ($size[1]/2)
-    $delay = $delay + round(random(8, 23) / 3, 1)
-    animation-delay round($delay, 1)s
+    // $delay = $delay + round(random(8, 23) / 3, 1)
+    // animation-delay round($delay, 1)s
+
   .photosAll div:nth-child({$all}n+{$v + 2})
     background-image url('photos/kuba' + base-convert(i+1, 10, 2) + '.jpg')
     $size = image-size('photos/kuba' + base-convert(i+1, 10, 2) + '.jpg')
     size ($size[0]/2) ($size[1]/2)
-    $delay = $delay + round(random(8, 23) / 3, 1)
-    animation-delay round($delay, 1)s
+    // $delay = $delay + round(random(8, 23) / 3, 1)
+    // animation-delay round($delay, 1)s
 
 #party
-  z-index 6 /* slide under group 3 and 5 */
+  z-index 3 /* slide under group 3 and 5 */
   .title
     text-align left
     min-width 20em
@@ -411,12 +470,13 @@ for i in (0..9) // '11' '12' '13' '14' '15' '16')
     h2
       text-align center
 
-// #party .parallax__layer--deep
-//   background-color linear-gradient(top, transparent, #ffffff)
+#party .parallax__layer--deep
+  overflow visible
+
 
 
 #money
-  z-index 5 /* slide over group 4 and 6 */
+  z-index 4 /* slide over group 4 and 6 */
 #money .parallax__layer--back
   .moneyBg
     background-color red

@@ -738,7 +738,6 @@ img {
   z-index: 9999;
   line-height: 1;
   position: relative;
-  background-color: #f00;
 }
 .lightbox img {
   -webkit-box-flex: 1;
@@ -1123,9 +1122,6 @@ img {
 }
 #money .parallax__layer--back {
   z-index: 2;
-}
-#money .parallax__layer--back .moneyBg {
-  background-color: #f00;
 }
 @-moz-keyframes wiggles {
   0% {

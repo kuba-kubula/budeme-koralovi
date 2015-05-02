@@ -1,0 +1,1035 @@
+/* sanitize.css | CC0 Public Domain | github.com/jonathantneal/sanitize.css */
+pre,
+textarea {
+  overflow: auto;
+}
+[hidden],
+audio:not([controls]),
+template {
+  display: none;
+}
+details,
+main,
+summary {
+  display: block;
+}
+input[type=number] {
+  width: auto;
+}
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+progress {
+  display: inline-block;
+}
+small {
+  font-size: 75%;
+}
+textarea {
+  resize: vertical;
+}
+[unselectable] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+*,
+::after,
+::before {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+* {
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+::after,
+::before {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+:root {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: default;
+  font: 16px/1.5 sans-serif;
+  text-rendering: optimizeLegibility;
+}
+a {
+  text-decoration: none;
+}
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  min-height: 1.5em;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+}
+nav ol,
+nav ul {
+  list-style: none;
+}
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+select::-ms-expand {
+  display: none;
+}
+select::-ms-value {
+  color: currentColor;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+::-moz-selection {
+  background-color: #b3d4fc;
+  text-shadow: none;
+}
+::selection {
+  background-color: #b3d4fc;
+  text-shadow: none;
+}
+@media screen {
+  [hidden~=screen] {
+    display: inherit;
+  }
+  [hidden~=screen]:not(:active):not(:focus):not(:target) {
+    clip: rect(0 0 0 0) !important;
+    position: absolute !important;
+  }
+}
+body {
+  background: #fff;
+}
+.fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 111;
+  white-space: nowrap;
+}
+.fix ul {
+  display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: distribute;
+  -moz-box-pack: distribute;
+  -o-box-pack: distribute;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.fix li {
+  list-style-type: none;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 0;
+  margin: 0;
+  line-height: 26px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(0,0,0,0.05);
+  font-size: 20px;
+  font-weight: bold;
+}
+.fix li:last-child {
+  border-right: none;
+}
+@media screen and (max-width: 480px) {
+  .fix li {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 0 45%;
+    -ms-flex: 1 0 45%;
+    flex: 1 0 45%;
+  }
+}
+.fix li:first-child {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 0 1 2em;
+  -ms-flex: 0 1 2em;
+  flex: 0 1 2em;
+  font-size: 26px;
+}
+.fix a {
+  text-align: center;
+  display: block;
+  background-color: rgba(255,255,255,0.95);
+  padding: 10px 5px 7px;
+  color: #093;
+  border-bottom: 3px solid rgba(255,255,255,0.001);
+  -webkit-transition-property: 'border-bottom-color background-color';
+  -moz-transition-property: 'border-bottom-color background-color';
+  -o-transition-property: 'border-bottom-color background-color';
+  -ms-transition-property: 'border-bottom-color background-color';
+  transition-property: 'border-bottom-color background-color';
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  -ms-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.fix a:active,
+.fix a:focus,
+.fix a:hover,
+.fix a:target {
+  border-bottom-color: #4682b4;
+  outline: none;
+  background-color: #eee;
+  color: #4682b4;
+}
+.graphics span {
+  position: absolute;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 250px;
+  height: 250px;
+  background-repeat: no-repeat;
+  -webkit-background-size: auto;
+  -moz-background-size: auto;
+  background-size: auto;
+  background-position: center;
+  margin-top: -125px;
+  margin-left: -125px;
+}
+.graphics .fire {
+  background-image: url("birds/fire.png");
+}
+.graphics .sunset {
+  background-image: url("birds/sunset.png");
+}
+.graphics .khaki {
+  background-image: url("birds/khaki.png");
+}
+.graphics .meadow {
+  background-image: url("birds/meadow.png");
+}
+.graphics .ocean {
+  background-image: url("birds/ocean.png");
+}
+.graphics .sky {
+  background-image: url("birds/sky.png");
+}
+.parallax {
+  height: 500px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+  -moz-perspective: 300px;
+  -ms-perspective: 300px;
+  perspective: 300px;
+  background-image: url("spacer.gif") repeat;
+}
+.parallax__group {
+  position: relative;
+  height: 500px;
+  height: 100vh;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.parallax__layer--fore {
+  -webkit-transform: translateZ(90px) scale(0.7);
+  -moz-transform: translateZ(90px) scale(0.7);
+  -o-transform: translateZ(90px) scale(0.7);
+  -ms-transform: translateZ(90px) scale(0.7);
+  transform: translateZ(90px) scale(0.7);
+  z-index: 5;
+}
+.parallax__layer--base {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 4;
+}
+.parallax__layer--back {
+  -webkit-transform: translateZ(-300px) scale(2);
+  -moz-transform: translateZ(-300px) scale(2);
+  -o-transform: translateZ(-300px) scale(2);
+  -ms-transform: translateZ(-300px) scale(2);
+  transform: translateZ(-300px) scale(2);
+  z-index: 3;
+}
+.parallax__layer--deep {
+  -webkit-transform: translateZ(-600px) scale(3);
+  -moz-transform: translateZ(-600px) scale(3);
+  -o-transform: translateZ(-600px) scale(3);
+  -ms-transform: translateZ(-600px) scale(3);
+  transform: translateZ(-600px) scale(3);
+  z-index: 2;
+}
+.debug {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 111;
+}
+.debug-on .parallax__group {
+  -webkit-transform: translate3d(700px, 0, -800px) rotateY(30deg);
+  -moz-transform: translate3d(700px, 0, -800px) rotateY(30deg);
+  -o-transform: translate3d(700px, 0, -800px) rotateY(30deg);
+  -ms-transform: translate3d(700px, 0, -800px) rotateY(30deg);
+  transform: translate3d(700px, 0, -800px) rotateY(30deg);
+}
+.debug-on .parallax__layer {
+  -webkit-box-shadow: 0 0 0 2px #000;
+  box-shadow: 0 0 0 2px #000;
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90);
+}
+.parallax__group {
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  -ms-transition: -ms-transform 0.5s;
+  transition: transform 0.5s;
+}
+body,
+html {
+  overflow: hidden;
+}
+body {
+  font: 100%/1.5 Arial;
+}
+.parallax {
+  font-size: 130%;
+}
+/* centre the content in the parallax layers */
+.title {
+  display: block;
+  -webkit-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  background-color: #fff;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  padding: 0 0 0.5em;
+}
+@media screen and (min-width: 480px) {
+  .title {
+    min-width: 300px;
+  }
+}
+@media screen and (min-width: 760px) {
+  .title {
+    min-width: 500px;
+  }
+}
+.title.titleBg {
+  margin-left: -20px;
+  margin-top: -20px;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+html,
+body {
+  background: url("above-clouds-min.jpg") center bottom no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.luckaKuba {
+  font-size: 22px;
+  color: #999;
+  line-height: 40px;
+  text-shadow: 0 0 5px #fff;
+  padding: 40px 40px 30px;
+}
+.luckaKuba .block {
+  line-height: 1;
+}
+.noWrap {
+  padding-top: 10px;
+  display: inline-block;
+  white-space: nowrap;
+}
+.lucka,
+.kuba {
+  font-size: 400%;
+}
+.lucka {
+  color: #f66;
+}
+.kuba {
+  color: #39f;
+}
+.block {
+  display: block;
+}
+#top {
+  z-index: 1;
+}
+#whoweare {
+  z-index: 4;
+}
+.title h2 {
+  padding: 0.5em 0;
+  margin: 0 1em;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.title p {
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0.5em 1em 0.5em;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+.inlineB {
+  display: inline-block;
+}
+.photosImg {
+  padding: 10px;
+  display: inline-block;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+}
+.photosImg + .photosImg {
+  padding-left: 0;
+}
+.clouds {
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  z-index: 11;
+  right: 0;
+  height: 210px;
+  background: url("svg/cloud-center.svg") center bottom no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+@media screen and (max-width: 640px) {
+  .clouds {
+    height: 130px;
+  }
+}
+.clouds:before,
+.clouds:after {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  pointer-events: none;
+  content: '';
+  height: 90%;
+  width: 50%;
+  background: url("svg/cloud-left.svg") left bottom no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+}
+@media screen and (max-width: 640px) {
+  .clouds:before,
+  .clouds:after {
+    height: 130px;
+  }
+}
+.clouds:after {
+  height: 100%;
+  background-image: url("svg/cloud-right.svg");
+  background-position: right bottom;
+  left: auto;
+  right: 0;
+}
+#info {
+  z-index: 5;
+}
+#maps {
+  z-index: 3;
+}
+#maps .parallax__layer--base {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.photosAll {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: distribute;
+  -moz-box-pack: distribute;
+  -o-box-pack: distribute;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.photosAll div {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 15%;
+  -ms-flex: 1 1 15%;
+  flex: 1 1 15%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+  margin: 30px 20px 0;
+  min-height: 320px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.photosAll div {
+  -webkit-animation: pulse 3s ease 1s 1 forwards;
+  -moz-animation: pulse 3s ease 1s 1 forwards;
+  -o-animation: pulse 3s ease 1s 1 forwards;
+  -ms-animation: pulse 3s ease 1s 1 forwards;
+  animation: pulse 3s ease 1s 1 forwards;
+}
+@media screen and (max-width: 1160px) {
+  .photosAll div {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    max-heigth: 320px;
+    max-width: 320px;
+  }
+}
+.photosAll div:nth-child(30n+0) {
+  background-image: url("photos/oba01.jpg");
+  width: 216.5px;
+  height: 320px;
+  -webkit-animation-delay: 3.3s;
+  -moz-animation-delay: 3.3s;
+  -o-animation-delay: 3.3s;
+  -ms-animation-delay: 3.3s;
+  animation-delay: 3.3s;
+}
+.photosAll div:nth-child(30n+1) {
+  background-image: url("photos/lucka01.jpg");
+  width: 349px;
+  height: 270px;
+  -webkit-animation-delay: 7s;
+  -moz-animation-delay: 7s;
+  -o-animation-delay: 7s;
+  -ms-animation-delay: 7s;
+  animation-delay: 7s;
+}
+.photosAll div:nth-child(30n+2) {
+  background-image: url("photos/kuba01.jpg");
+  width: 249.5px;
+  height: 320px;
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay: 4s;
+  -ms-animation-delay: 4s;
+  animation-delay: 4s;
+}
+.photosAll div:nth-child(30n+3) {
+  background-image: url("photos/oba02.jpg");
+  width: 223px;
+  height: 320px;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.photosAll div:nth-child(30n+4) {
+  background-image: url("photos/lucka02.jpg");
+  width: 180px;
+  height: 320px;
+  -webkit-animation-delay: 4.3s;
+  -moz-animation-delay: 4.3s;
+  -o-animation-delay: 4.3s;
+  -ms-animation-delay: 4.3s;
+  animation-delay: 4.3s;
+}
+.photosAll div:nth-child(30n+5) {
+  background-image: url("photos/kuba02.jpg");
+  width: 199.5px;
+  height: 320px;
+  -webkit-animation-delay: 4.3s;
+  -moz-animation-delay: 4.3s;
+  -o-animation-delay: 4.3s;
+  -ms-animation-delay: 4.3s;
+  animation-delay: 4.3s;
+}
+.photosAll div:nth-child(30n+6) {
+  background-image: url("photos/oba03.jpg");
+  width: 310.5px;
+  height: 320px;
+  -webkit-animation-delay: 1.7s;
+  -moz-animation-delay: 1.7s;
+  -o-animation-delay: 1.7s;
+  -ms-animation-delay: 1.7s;
+  animation-delay: 1.7s;
+}
+.photosAll div:nth-child(30n+7) {
+  background-image: url("photos/lucka03.jpg");
+  width: 180px;
+  height: 320px;
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+  -o-animation-delay: 5s;
+  -ms-animation-delay: 5s;
+  animation-delay: 5s;
+}
+.photosAll div:nth-child(30n+8) {
+  background-image: url("photos/kuba03.jpg");
+  width: 180px;
+  height: 320px;
+  -webkit-animation-delay: 4.3s;
+  -moz-animation-delay: 4.3s;
+  -o-animation-delay: 4.3s;
+  -ms-animation-delay: 4.3s;
+  animation-delay: 4.3s;
+}
+.photosAll div:nth-child(30n+9) {
+  background-image: url("photos/oba04.jpg");
+  width: 398px;
+  height: 320px;
+  -webkit-animation-delay: 2.7s;
+  -moz-animation-delay: 2.7s;
+  -o-animation-delay: 2.7s;
+  -ms-animation-delay: 2.7s;
+  animation-delay: 2.7s;
+}
+.photosAll div:nth-child(30n+10) {
+  background-image: url("photos/lucka04.jpg");
+  width: 320px;
+  height: 320px;
+  -webkit-animation-delay: 3.3s;
+  -moz-animation-delay: 3.3s;
+  -o-animation-delay: 3.3s;
+  -ms-animation-delay: 3.3s;
+  animation-delay: 3.3s;
+}
+.photosAll div:nth-child(30n+11) {
+  background-image: url("photos/kuba04.jpg");
+  width: 311px;
+  height: 320px;
+  -webkit-animation-delay: 3.3s;
+  -moz-animation-delay: 3.3s;
+  -o-animation-delay: 3.3s;
+  -ms-animation-delay: 3.3s;
+  animation-delay: 3.3s;
+}
+.photosAll div:nth-child(30n+12) {
+  background-image: url("photos/oba05.jpg");
+  width: 385.5px;
+  height: 320px;
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  -o-animation-delay: 3s;
+  -ms-animation-delay: 3s;
+  animation-delay: 3s;
+}
+.photosAll div:nth-child(30n+13) {
+  background-image: url("photos/lucka05.jpg");
+  width: 217.5px;
+  height: 320px;
+  -webkit-animation-delay: 7.3s;
+  -moz-animation-delay: 7.3s;
+  -o-animation-delay: 7.3s;
+  -ms-animation-delay: 7.3s;
+  animation-delay: 7.3s;
+}
+.photosAll div:nth-child(30n+14) {
+  background-image: url("photos/kuba05.jpg");
+  width: 237.5px;
+  height: 320px;
+  -webkit-animation-delay: 4.3s;
+  -moz-animation-delay: 4.3s;
+  -o-animation-delay: 4.3s;
+  -ms-animation-delay: 4.3s;
+  animation-delay: 4.3s;
+}
+.photosAll div:nth-child(30n+15) {
+  background-image: url("photos/oba06.jpg");
+  width: 426.5px;
+  height: 320px;
+  -webkit-animation-delay: 1.3s;
+  -moz-animation-delay: 1.3s;
+  -o-animation-delay: 1.3s;
+  -ms-animation-delay: 1.3s;
+  animation-delay: 1.3s;
+}
+.photosAll div:nth-child(30n+16) {
+  background-image: url("photos/lucka06.jpg");
+  width: 195px;
+  height: 320px;
+  -webkit-animation-delay: 7.7s;
+  -moz-animation-delay: 7.7s;
+  -o-animation-delay: 7.7s;
+  -ms-animation-delay: 7.7s;
+  animation-delay: 7.7s;
+}
+.photosAll div:nth-child(30n+17) {
+  background-image: url("photos/kuba06.jpg");
+  width: 240px;
+  height: 320px;
+  -webkit-animation-delay: 7.7s;
+  -moz-animation-delay: 7.7s;
+  -o-animation-delay: 7.7s;
+  -ms-animation-delay: 7.7s;
+  animation-delay: 7.7s;
+}
+.photosAll div:nth-child(30n+18) {
+  background-image: url("photos/oba07.jpg");
+  width: 367.5px;
+  height: 320px;
+  -webkit-animation-delay: 2.3s;
+  -moz-animation-delay: 2.3s;
+  -o-animation-delay: 2.3s;
+  -ms-animation-delay: 2.3s;
+  animation-delay: 2.3s;
+}
+.photosAll div:nth-child(30n+19) {
+  background-image: url("photos/lucka07.jpg");
+  width: 240px;
+  height: 320px;
+  -webkit-animation-delay: 7.7s;
+  -moz-animation-delay: 7.7s;
+  -o-animation-delay: 7.7s;
+  -ms-animation-delay: 7.7s;
+  animation-delay: 7.7s;
+}
+.photosAll div:nth-child(30n+20) {
+  background-image: url("photos/kuba07.jpg");
+  width: 240px;
+  height: 320px;
+  -webkit-animation-delay: 4.3s;
+  -moz-animation-delay: 4.3s;
+  -o-animation-delay: 4.3s;
+  -ms-animation-delay: 4.3s;
+  animation-delay: 4.3s;
+}
+.photosAll div:nth-child(30n+21) {
+  background-image: url("photos/oba08.jpg");
+  width: 217.5px;
+  height: 320px;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.photosAll div:nth-child(30n+22) {
+  background-image: url("photos/lucka08.jpg");
+  width: 240px;
+  height: 320px;
+  -webkit-animation-delay: 6.3s;
+  -moz-animation-delay: 6.3s;
+  -o-animation-delay: 6.3s;
+  -ms-animation-delay: 6.3s;
+  animation-delay: 6.3s;
+}
+.photosAll div:nth-child(30n+23) {
+  background-image: url("photos/kuba08.jpg");
+  width: 201.5px;
+  height: 320px;
+  -webkit-animation-delay: 3.3s;
+  -moz-animation-delay: 3.3s;
+  -o-animation-delay: 3.3s;
+  -ms-animation-delay: 3.3s;
+  animation-delay: 3.3s;
+}
+.photosAll div:nth-child(30n+24) {
+  background-image: url("photos/oba09.jpg");
+  width: 262px;
+  height: 320px;
+  -webkit-animation-delay: 2.3s;
+  -moz-animation-delay: 2.3s;
+  -o-animation-delay: 2.3s;
+  -ms-animation-delay: 2.3s;
+  animation-delay: 2.3s;
+}
+.photosAll div:nth-child(30n+25) {
+  background-image: url("photos/lucka09.jpg");
+  width: 197px;
+  height: 320px;
+  -webkit-animation-delay: 5.7s;
+  -moz-animation-delay: 5.7s;
+  -o-animation-delay: 5.7s;
+  -ms-animation-delay: 5.7s;
+  animation-delay: 5.7s;
+}
+.photosAll div:nth-child(30n+26) {
+  background-image: url("photos/kuba09.jpg");
+  width: 213.5px;
+  height: 320px;
+  -webkit-animation-delay: 5.7s;
+  -moz-animation-delay: 5.7s;
+  -o-animation-delay: 5.7s;
+  -ms-animation-delay: 5.7s;
+  animation-delay: 5.7s;
+}
+.photosAll div:nth-child(30n+27) {
+  background-image: url("photos/oba10.jpg");
+  width: 180px;
+  height: 320px;
+  -webkit-animation-delay: 2.3s;
+  -moz-animation-delay: 2.3s;
+  -o-animation-delay: 2.3s;
+  -ms-animation-delay: 2.3s;
+  animation-delay: 2.3s;
+}
+.photosAll div:nth-child(30n+28) {
+  background-image: url("photos/lucka10.jpg");
+  width: 245.5px;
+  height: 320px;
+  -webkit-animation-delay: 3.7s;
+  -moz-animation-delay: 3.7s;
+  -o-animation-delay: 3.7s;
+  -ms-animation-delay: 3.7s;
+  animation-delay: 3.7s;
+}
+.photosAll div:nth-child(30n+29) {
+  background-image: url("photos/kuba10.jpg");
+  width: 180.5px;
+  height: 320px;
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+  -o-animation-delay: 5s;
+  -ms-animation-delay: 5s;
+  animation-delay: 5s;
+}
+#party {
+  z-index: 6;
+}
+#party .title {
+  text-align: left;
+  min-width: 20em;
+}
+#party .title ul {
+  list-style-type: none;
+  padding: 0.5em;
+  margin: 0;
+}
+#party .title ul > li {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+}
+#party .title ul > li .startTime {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 4em;
+  -ms-flex: 1 1 4em;
+  flex: 1 1 4em;
+}
+#party .title ul > li span {
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -o-box-flex: 3;
+  box-flex: 3;
+  -webkit-flex: 3 1 70%;
+  -ms-flex: 3 1 70%;
+  flex: 3 1 70%;
+}
+#party .title ul,
+#party .title p {
+  font-size: 16px;
+}
+#party .title h2 {
+  text-align: center;
+}
+#money {
+  z-index: 5;
+}
+#money .parallax__layer--back .moneyBg {
+  background-color: #f00;
+}
+@-moz-keyframes pulse {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 0.95;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+    filter: alpha(opacity=95);
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 0.95;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+    filter: alpha(opacity=95);
+  }
+}
+@-o-keyframes pulse {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 0.95;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+    filter: alpha(opacity=95);
+  }
+}
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 0.95;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+    filter: alpha(opacity=95);
+  }
+}

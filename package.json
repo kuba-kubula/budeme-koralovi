@@ -1,0 +1,27 @@
+{
+  "name": "koralovi",
+  "version": "0.0.1",
+  "description": "Web for wedding... guess it?",
+  "scripts": {
+    "develop": "./node_modules/.bin/stylus --include node_modules/nib/lib --watch --out . ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuba-kubula/koralovi.git"
+  },
+  "private": true,
+  "keywords": [
+    "wedding",
+    "webpage",
+    "personal"
+  ],
+  "author": "Jakub Koral; kuba-kubula",
+  "bugs": {
+    "url": "https://github.com/kuba-kubula/koralovi/issues"
+  },
+  "homepage": "http://kuba-kubula.github.io/koralovi",
+  "dependencies": {
+    "nib": "^1.1.0",
+    "stylus": "^0.51.1"
+  }
+}

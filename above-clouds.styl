@@ -1,0 +1,422 @@
+@import 'nib'
+
+animate(type, delay=0, duration=0.2s)
+  transition-property (type || all)
+  transition-duration (duration || 0.2s)
+  transition-timing-function ease-in-out
+
+random(min,max)
+  return floor(math(0, 'random')*(max - min + 1) + min)
+
+/*! sanitize.css | CC0 Public Domain | github.com/jonathantneal/sanitize.css */
+pre,textarea{overflow:auto}
+[hidden],audio:not([controls]),template{display:none}
+details,main,summary{display:block}
+input[type=number]{width:auto}
+input[type=search]{-webkit-appearance:textfield}
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
+progress{display:inline-block}
+small{font-size:75%}
+textarea{resize:vertical}
+[unselectable]{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+*,::after,::before{box-sizing:inherit;border-style:solid;border-width:0}
+*{font-size:inherit;line-height:inherit;margin:0;padding:0}
+::after,::before{text-decoration:inherit;vertical-align:inherit}
+:root{-ms-overflow-style:-ms-autohiding-scrollbar;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%;box-sizing:border-box;cursor:default;font:16px/1.5 sans-serif;text-rendering:optimizeLegibility}
+a{text-decoration:none}
+audio,canvas,iframe,img,svg,video{vertical-align:middle}
+button,input,select,textarea{background-color:transparent;color:inherit;font-family:inherit;font-style:inherit;font-weight:inherit;min-height:1.5em}
+code,kbd,pre,samp{font-family:monospace,monospace}
+nav ol,nav ul{list-style:none}
+select{-moz-appearance:none;-webkit-appearance:none}
+select::-ms-expand{display:none}
+select::-ms-value{color:currentColor}
+table{border-collapse:collapse;border-spacing:0}
+::-moz-selection{background-color:#B3D4FC;text-shadow:none}
+::selection{background-color:#B3D4FC;text-shadow:none}
+@media screen{[hidden~=screen]{display:inherit}
+[hidden~=screen]:not(:active):not(:focus):not(:target){clip:rect(0 0 0 0)!important;position:absolute!important}
+}
+
+
+body
+  background #fff
+
+.fix
+  position fixed
+  top 0
+  left 0
+  right 0
+  z-index 111
+  white-space nowrap
+
+  ul
+    display block
+    display flex
+    flex-flow row
+    flex-wrap wrap
+    align-items center
+    justify-content space-around
+    padding 0
+    margin 0
+    width 100%
+
+  li
+    list-style-type none
+    flex 1 1 auto
+    padding 0
+    margin 0
+    line-height 26px
+    border-bottom 1px solid rgba(#000,0.05)
+    box-sizing border-box
+    border-right 1px solid rgba(#000,0.05)
+    font-size 20px
+    font-weight bold
+    &:last-child
+      border-right none
+    @media screen and (max-width:480px)
+      flex 1 0 45%
+    &:first-child
+      flex 0 1 2em
+      font-size 26px
+
+  a
+    text-align center
+    display block
+    background-color rgba(#fff, 0.95)
+    padding 10px 5px 7px
+    color #009933
+    border-bottom 3px solid rgba(#fff, 0.001)
+    animate('border-bottom-color background-color')
+    &:active
+    &:focus
+    &:hover
+    &:target
+      border-bottom-color steelblue
+      outline none
+      background-color #eee
+      color steelblue
+
+
+.graphics
+  span
+    position absolute
+    top auto
+    left auto
+    right auto
+    bottom auto
+    size 250px
+    background-repeat no-repeat
+    background-size auto
+    background-position center
+    margin-top -125px
+    margin-left -125px
+  .fire
+    background-image url(birds/fire.png)
+  .sunset
+    background-image url(birds/sunset.png)
+  .khaki
+    background-image url(birds/khaki.png)
+  .meadow
+    background-image url(birds/meadow.png)
+  .ocean
+    background-image url(birds/ocean.png)
+  .sky
+    background-image url(birds/sky.png)
+
+.parallax
+  height 500px /* fallback for older browsers */
+  height 100vh
+  overflow-x hidden
+  overflow-y auto
+  perspective 300px
+  background-image url(spacer.gif) repeat
+
+.parallax__group
+  position relative
+  height 500px /* fallback for older browsers */
+  height 100vh
+  transform-style preserve-3d
+
+.parallax__layer
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 0
+
+.parallax__layer--fore
+  transform translateZ(90px) scale(.7)
+  z-index 5
+
+.parallax__layer--base
+  transform translateZ(0)
+  z-index 4
+
+.parallax__layer--back
+  transform translateZ(-300px) scale(2)
+  z-index 3
+
+.parallax__layer--deep
+  transform translateZ(-600px) scale(3)
+  z-index 2
+
+.debug
+  position fixed
+  bottom 10px
+  left 10px
+  z-index 111
+
+.debug-on .parallax__group
+  transform translate3d(700px, 0, -800px) rotateY(30deg)
+
+.debug-on .parallax__layer
+  box-shadow 0 0 0 2px #000
+  opacity 0.9
+
+.parallax__group
+  transition transform 0.5s
+
+
+
+body
+html
+  overflow hidden
+
+body
+  font 100% / 1.5 Arial
+
+.parallax
+  font-size 130%
+
+/* centre the content in the parallax layers */
+.title
+  display block
+  align-self center
+  text-align center
+  top 50%
+  left 50%
+  position absolute
+  background-color #ffffff
+  transform translate(-50%, -50%)
+  border-radius 30px
+  padding 0 0 0.5em
+  @media screen and (min-width:480px)
+    min-width 300px
+  @media screen and (min-width:760px)
+    min-width 500px
+
+  &.titleBg
+    margin-left -20px
+    margin-top -20px
+    opacity 0.5
+
+html
+body
+  background url(above-clouds-min.jpg) center bottom no-repeat
+  background-size cover
+
+.luckaKuba
+  font-size 22px
+  color #999
+  line-height 40px
+  text-shadow 0 0 5px #fff
+  padding 40px 40px 30px
+
+  .block
+    line-height 1.0
+
+.noWrap
+  padding-top 10px
+  display inline-block
+  white-space nowrap
+
+.lucka
+.kuba
+  font-size 400%
+
+.lucka
+  color #FF6666
+
+.kuba
+  color #3399FF
+.block
+  display block
+
+
+#top
+  z-index 1 /* slide over group 2 */
+
+
+#whoweare
+  z-index 4 /* slide over group 2 */
+
+.title
+  h2
+    padding 0.5em 0
+    margin 0 1em
+    border-bottom 1px solid rgba(#000, 0.05)
+
+  p
+    max-width 100%
+    box-sizing border-box
+    margin 0 auto
+    padding 0.5em 1em 0.5em
+
+img
+  display block
+  max-width 100%
+
+.inlineB
+  display inline-block
+
+.photosImg
+  padding 10px
+  display inline-block
+  border-radius 30px
+
+  & + .photosImg
+    padding-left 0
+
+.clouds
+  position absolute
+  pointer-events none
+  bottom 0
+  left 0
+  z-index 11
+  right 0
+  height 210px
+  background url('svg/cloud-center.svg') center bottom no-repeat
+  background-size contain
+  overflow hidden
+  border-bottom 1px solid #ccc
+  @media screen and (max-width:640px)
+    height 130px
+
+.clouds:before
+.clouds:after
+  z-index -1
+  position absolute
+  left 0
+  bottom 0
+  pointer-events none
+  content ''
+  height 90%
+  width 50%
+  background url('svg/cloud-left.svg') left bottom no-repeat
+  background-size contain
+  @media screen and (max-width:640px)
+    height 130px
+.clouds:after
+  height 100%
+  background-image url('svg/cloud-right.svg')
+  background-position right bottom
+  left auto
+  right 0
+
+// #top
+
+#info
+  z-index 5 /* slide under groups 1 and 3 */
+
+#maps
+  z-index 3 /* slide over group 2 and 4 */
+
+#maps .parallax__layer--base
+  // background url('https://maps.googleapis.com/maps/api/staticmap?center=49.2368582,14.1551861&scale=2&zoom=13&format=png&sensor=false&size=1024x1024&maptype=roadmap&visual_refresh=true&style=visibility:on%7Csaturation:30&style=feature:poi%7Cvisibility:simplified&style=feature:transit%7Cvisibility:full&style=feature:transit.station%7Cvisibility:on&markers=color:0x5f5cf6%7CHerman+Pisek+Czech+Republic') center no-repeat
+  background-size cover
+
+// #whoweare
+//   .parallax__layer--back
+//     background-image url()
+
+.photosAll
+  display flex
+  position absolute
+  top 50px
+  left 0
+  right 0
+  align-items center
+  justify-content space-around
+  flex-flow row
+  flex-wrap wrap
+
+.photosAll div
+  flex 1 1 15%
+  background-repeat no-repeat
+  background-position center center
+  background-size contain
+  margin 30px 20px 0
+  min-height 320px
+  opacity 0
+
+
+@keyframes pulse
+  0%
+    opacity 0
+  100%
+    opacity 0.95
+
+$all = 10 + 10 + 10
+
+$delay = 0
+
+.photosAll div
+  animation pulse 3s ease 1s 1 forwards
+  @media screen and (max-width:1160px)
+    flex 1 1 auto
+    max-heigth 320px
+    max-width 320px
+for i in (0..9) // '11' '12' '13' '14' '15' '16')
+  $v = 3 * i
+  .photosAll div:nth-child({$all}n+{$v})
+    background-image url('photos/oba' + base-convert(i+1, 10, 2) + '.jpg')
+    $size = image-size('photos/oba' + base-convert(i+1, 10, 2) + '.jpg')
+    size ($size[0]/2) ($size[1]/2)
+    $delay = $delay + round(random(4, 10) / 3, 1)
+    animation-delay round($delay, 1)s
+  .photosAll div:nth-child({$all}n+{$v + 1})
+    background-image url('photos/lucka' + base-convert(i+1, 10, 2) + '.jpg')
+    $size = image-size('photos/lucka' + base-convert(i+1, 10, 2) + '.jpg')
+    size ($size[0]/2) ($size[1]/2)
+    $delay = $delay + round(random(8, 23) / 3, 1)
+    animation-delay round($delay, 1)s
+  .photosAll div:nth-child({$all}n+{$v + 2})
+    background-image url('photos/kuba' + base-convert(i+1, 10, 2) + '.jpg')
+    $size = image-size('photos/kuba' + base-convert(i+1, 10, 2) + '.jpg')
+    size ($size[0]/2) ($size[1]/2)
+    $delay = $delay + round(random(8, 23) / 3, 1)
+    animation-delay round($delay, 1)s
+
+#party
+  z-index 6 /* slide under group 3 and 5 */
+  .title
+    text-align left
+    min-width 20em
+    ul
+      list-style-type none
+      padding 0.5em
+      margin 0
+    ul > li
+      display flex
+      .startTime
+        flex 1 1 4em
+      span
+        flex 3 1 70%
+    ul
+    p
+      font-size 16px
+
+    h2
+      text-align center
+
+// #party .parallax__layer--deep
+//   background-color linear-gradient(top, transparent, #ffffff)
+
+
+#money
+  z-index 5 /* slide over group 4 and 6 */
+#money .parallax__layer--back
+  .moneyBg
+    background-color red
+

@@ -1,0 +1,10 @@
+---
+root:
+lsi: false
+highlighter: false
+markdown: kramdown
+
+# Site configuration
+title:        Svatba–Lucka a Kuba
+description:  Budeme se brát
+author:       Jakub Korál

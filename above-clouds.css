@@ -385,6 +385,7 @@ body {
 }
 body,
 html {
+  background-color: #fff;
   overflow: hidden;
 }
 body {
@@ -432,7 +433,7 @@ body {
 }
 html,
 body {
-  background: url("above-clouds-min.jpg") center bottom no-repeat;
+  background: #fff url("above-clouds-min.jpg") center bottom no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;

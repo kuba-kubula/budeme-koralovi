@@ -38,12 +38,33 @@ table{border-collapse:collapse;border-spacing:0}
 [hidden~=screen]:not(:active):not(:focus):not(:target){clip:rect(0 0 0 0)!important;position:absolute!important}
 }
 
+$violet = #450093
+$navLinkColor = #8214FF
+$navLinkBg = lighten(#D2ABFF, 55%)
+$headingColor = darken(#88D700, 30%)
+
+#whoweare h2
+.fix li:nth-of-type(2) a
+  color darken(#C2C300, 7%)
+#info h2
+.fix li:nth-of-type(3) a
+  color darken(#88D700, 17%)
+#party h2
+.fix li:nth-of-type(4) a
+  color darken(saturate(#00C3CF, 30%), 20%)
+#money h2
+.fix li:nth-of-type(5) a
+  color darken(#FFA0A6, 13%)
+#maps h2
+.fix li:nth-of-type(6) a
+  color $navLinkColor
+
 body
   a
-    color lighten(#450093, 20%)
+    color lighten($violet, 20%)
     text-decoration underline
   a:hover
-    color darken(#450093, 10%)
+    color darken($violet, 10%)
 
 body
   color #333
@@ -70,10 +91,10 @@ body
 
   li
     list-style-type none
-    flex 1 1 auto
+    flex 6 1 auto
     padding 0
     margin 0
-    line-height 26px
+    line-height 32px
     border-bottom 1px solid rgba(#000,0.05)
     box-sizing border-box
     border-right 1px solid #e5e5e5
@@ -82,18 +103,31 @@ body
     &:last-child
       border-right none
     @media screen and (max-width:480px)
-      flex 1 0 45%
+      flex 5 0 47%
     &:first-child
     &:last-child
-      flex 1 1 2em
-      font-size 26px
+      a
+        color #fff
+        background-color $navLinkColor
+        text-shadow 0 0 1px #fff, 0 0 3px #fff
+        line-height 26px
+        padding-top 11px
+        padding-bottom 11px
+        &:hover
+        &:active
+        &:focus
+          background-color darken($navLinkColor, 20%)
+          color #fff
 
-  a
+      flex 1 0 2em
+      font-size 32px
+
+  li a
     text-align center
     display block
     background-color rgba(#fff, 1)
-    padding 12px 5px 10px
-    color #8214FF
+    padding 9px 5px 7px
+    color $navLinkColor
     text-decoration none
     position relative
     animate('border-bottom-color background-color')
@@ -105,17 +139,17 @@ body
       right 0
       height 10px
       animate(all)
-      background-color rgba(lighten(#D2ABFF, 40%), 0.5)
+      background-color rgba(lighten(#D2ABFF, 55%), 0.5)
 
     &:active
     &:focus
     &:hover
     &:target
       outline none
-      background-color lighten(#D2ABFF, 65%)
-      color #450093
+      background-color #fff
+      color $violet
       &:after
-        background-color #450093
+        background-color $violet
 
 
 .graphics
@@ -211,6 +245,8 @@ body
 
 .parallax
   font-size 130%
+.bigPara
+  font-size 150%
 
 /* centre the content in the parallax layers */
 .title
@@ -223,10 +259,9 @@ body
   background-color #ffffff
   transform translate(-50%, -50%)
   border-radius 30px
-  padding 0 0 1em
+  padding 0.5em 0 1em
   max-width 99%
   white-space normal
-
   @media screen and (max-width:760px)
     min-width 500px
   @media screen and (max-width:480px)
@@ -288,15 +323,21 @@ body
     z-index 3
 
 .title
+  margin-top 10px
   h2
+    position absolute
+    left 50%
+    top -1.8em
+    transform translateX(-50%)
     font-size 150%
-    padding 0.5em 0 0.35em
-    background-color rgba(#FF6D66, 0.05)
-    border-radius top 30px
-    border-bottom 1px solid #ccc
-    color lighten(#450093, 10%)
-    /#whoweare &
-      color darken(#FF6D66, 20%)
+    padding 0.5em 0.7em 0.35em
+    line-height 1.0em
+    border-bottom none
+    margin 0 auto 0 auto
+    background-color #ffffff
+    display block
+    border-radius top 1em
+    color lighten($headingColor, 10%)
   p
     max-width 100%
     box-sizing border-box
@@ -538,7 +579,7 @@ img
   backface-visibility hidden
   display flex
   position absolute
-  top 60px
+  top 2em
   left 0
   right 0
   overflow visible
@@ -547,6 +588,8 @@ img
   flex-flow row
   flex-wrap wrap
   z-index 1
+
+  // overlay for all background photos
   &:after
     transform-style flat
     z-index 1
@@ -556,23 +599,26 @@ img
     left 0
     right 0
     bottom -50px
-    background-color rgba(#fff, 0.25)
+    background-color rgba(#fff, 0.33)
     transform translate3d(0,100px,5px)
     // animation antiwiggles 3s ease 4s infinite normal forwards
 
 .photosAll div
+.photosAll span
   flex 1 1 15%
   background-repeat no-repeat
   background-position center center
   background-size contain
-  margin 30px 20px 0
+  margin 28px 20px 0
   min-height 320px
   position relative
   opacity 1
+  display block
   // animation antiwiggles 3s ease 4s infinite normal forwards
   transform translate3d(0, 0, 1.5px)
 
 .photosAll div
+.photosAll span
   opacity 0
   animation-name pulse,antiwiggles
   animation-duration 3s,3s
@@ -594,6 +640,7 @@ $all = 10 + 10 + 10
 $delay = 0
 
 .photosAll div
+.photosAll span
   // animation pulse 3s ease 1s 1 forwards
   @media screen and (max-width:1160px)
     flex 1 1 auto
@@ -601,26 +648,26 @@ $delay = 0
     max-width 320px
 for i in (0..9) // '11' '12' '13' '14' '15' '16')
   $v = 3 * i
-  .photosAll div:nth-child({$all}n+{$v})
+  .photosAll div:nth-of-type({$all}n+{$v})
     background-image url('photos/oba' + base-convert(i+1, 10, 2) + '.jpg')
     $size = image-size('photos/oba' + base-convert(i+1, 10, 2) + '.jpg')
     size ($size[0]/2) ($size[1]/2)
-    // $delay = $delay + round(random(4, 10) / 3, 1)
-    // animation-delay round($delay, 1)s
 
-  .photosAll div:nth-child({$all}n+{$v + 1})
+  .photosAll div:nth-of-type({$all}n+{$v + 1})
     background-image url('photos/lucka' + base-convert(i+1, 10, 2) + '.jpg')
     $size = image-size('photos/lucka' + base-convert(i+1, 10, 2) + '.jpg')
     size ($size[0]/2) ($size[1]/2)
-    // $delay = $delay + round(random(8, 23) / 3, 1)
-    // animation-delay round($delay, 1)s
 
-  .photosAll div:nth-child({$all}n+{$v + 2})
+  .photosAll div:nth-of-type({$all}n+{$v + 2})
     background-image url('photos/kuba' + base-convert(i+1, 10, 2) + '.jpg')
     $size = image-size('photos/kuba' + base-convert(i+1, 10, 2) + '.jpg')
     size ($size[0]/2) ($size[1]/2)
-    // $delay = $delay + round(random(8, 23) / 3, 1)
-    // animation-delay round($delay, 1)s
+
+for i in (1..6)
+  .photosAll span:nth-of-type({i})
+    background-image url('photos/oba' + base-convert(i+10, 10, 2) + '.jpg')
+    $size = image-size('photos/oba' + base-convert(i+10, 10, 2) + '.jpg')
+    size ($size[0]/2) ($size[1]/2)
 
 #party
   z-index 4 /* slide under group 3 and 5 */

@@ -3,8 +3,9 @@ root:
 lsi: false
 
 # Site configuration
-title:        Svatba–Lucka a Kuba
-description:  Budeme se brát
-author:       Jakub Korál
+title:        'Svatba Lucka a Kuba'
+description:  'Svatba Lucka a Kuba, 25. 7. 2015 Hrad Strakonice. Svobodu jsme již vyzkoušeli, manželství ještě neznáme, sňatek uzavřít hodláme.'
+author:       'Jakub Korál a Lucie Toušková'
 
-ignore: ['*.styl']
+# include: ['favicon.png', 'favicon.ico', 'apple-touch-icon-precomposed.png']
+exclude: ['*.styl', '*.coffee', 'node_modules']

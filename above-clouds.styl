@@ -690,6 +690,19 @@ for i in (1..6)
       list-style-type none
       padding 0.5em 1em 0
       margin 0
+      position relative
+      &.nonFinal:after
+        content 'Předběžný program'
+        color rgba(red, 0.9)
+        background-color rgba(white, 0.7)
+
+        transform translate(-50%, -50%) rotate(-45deg)
+        transform-origin center center
+        position absolute
+        left 50%
+        top 50%
+        font-size 28px
+        font-weight bold
     ul > li
       padding 0.2em 0 0
       display flex

@@ -1354,6 +1354,27 @@ img {
   list-style-type: none;
   padding: 0.5em 1em 0;
   margin: 0;
+  position: relative;
+}
+#party .title ul.nonFinal:after {
+  content: 'Předběžný program';
+  color: rgba(255,0,0,0.9);
+  background-color: rgba(255,255,255,0.7);
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  -moz-transform: translate(-50%, -50%) rotate(-45deg);
+  -o-transform: translate(-50%, -50%) rotate(-45deg);
+  -ms-transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 28px;
+  font-weight: bold;
 }
 #party .title ul > li {
   padding: 0.2em 0 0;

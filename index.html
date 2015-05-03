@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="above-clouds.css">
+  <link rel="stylesheet" href="above-clouds.css?v={{ site.time | date: '%s' }}">
   <title>Svatba Lucka a Jakub</title>
 
   <meta name="viewport" content="width=device-width, minimum-scale=1.0">
@@ -40,12 +40,6 @@
     </ul>
   </nav>
 
-  <!--
-    <div class="debug">
-      <label><input type="checkbox"> Debug</label>
-    </div>
-  -->
-
   <div id="page" class="parallax">
     <div id="top" class="parallax__group"><a name="top"></a>
       <div class="parallax__layer parallax__layer--base">
@@ -63,7 +57,7 @@
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <!-- <span></span><span></span><span></span><span></span><span></span><span></span> -->
         </div>
       </div>
     </div>
@@ -72,7 +66,10 @@
       <div class="parallax__layer parallax__layer--base">
         <div class="title"><a id="svatba" name="svatba"></a>
           <h2>Svatba</h2>
-          <p>Tímto my dva, <b class="lucka">Lucie Toušková</b> a <b class="kuba">Jakub Korál</b>, oznamujeme širému světu, že svobodu jsme již vyzkoušeli, manželství ještě neznáme, sňatek uzavřít hodláme.</p>
+          <p>
+            Tímto my dva,
+            <b class="lucka">Lucie Toušková</b> a <b class="kuba">Jakub Korál</b>,
+            oznamujeme širému světu, že svobodu jsme již vyzkoušeli, manželství ještě neznáme, sňatek uzavřít hodláme.</p>
           <p><b>Chceme se <del>prostě</del> vzít.</b> Může to být tak jednoduché? Může.</p>
           <p class="imagesOnSide">Svědčit nám budou <span class="lucka">Nina Knoblochová</span> a <span class="kuba">Lukáš Linhart</span>.</p>
           <p class="imagesOnSide">Protože je <b class="lucka">Lucka</b> z <a href="http://www.obecherman.cz" target="_blank">Heřmaně od Písku</a>, bude svatba v jižních Čechách.</p>
@@ -105,10 +102,10 @@
       <div class="parallax__layer parallax__layer--back">
         <div class="title titleBack">
           <div class="flexRow">
-            <img height="426" width="640" class="photosImg" src="strakonice/hrad.jpg" />
-            <img height="426" width="640" class="photosImg" src="strakonice/letecka.jpg" />
-            <img height="426" width="640" class="photosImg" src="strakonice/sin.jpg" />
-            <img height="426" width="640" class="photosImg" src="strakonice/sin2.jpg" />
+            <span class="photosImg"><img src="strakonice/hrad.jpg" /></span>
+            <span class="photosImg"><img src="strakonice/letecka.jpg" /></span>
+            <span class="photosImg"><img src="strakonice/sin.jpg" /></span>
+            <span class="photosImg"><img src="strakonice/sin2.jpg" /></span>
           </div>
         </div>
       </div>
@@ -198,7 +195,7 @@
         <div class="title"><a id="mapy" name="mapy"></a>
           <h2>Mapy</h2>
           <p>Nejdřív jedna přehledná mapa, pak detail místa svatebního obřadu a nakonec jeden průlet nad místem odpoledně-noční zábavy.</p>
-          <p><small>Klikněte si pro detal–zvětšení</small></p>
+          <p><small>Klikněte si pro detail–zvětšení</small></p>
           <div class="allMaps">
               <a href="#map_overview">
                 <img tabindex="0" height="610" width="1340" src="maps/overview.png" />

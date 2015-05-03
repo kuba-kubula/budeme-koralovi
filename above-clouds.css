@@ -581,6 +581,7 @@ body {
 }
 .title h2 {
   position: absolute;
+  white-space: nowrap;
   left: 50%;
   top: -1.8em;
   -webkit-transform: translateX(-50%);
@@ -594,7 +595,12 @@ body {
   border-bottom: none;
   margin: 0 auto 0 auto;
   background-color: #fff;
-  display: block;
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-box;
+  display: inline-flex;
   -webkit-border-top-left-radius: 1em;
   border-top-left-radius: 1em;
   -webkit-border-top-right-radius: 1em;
@@ -617,6 +623,7 @@ img {
   display: inline-block;
 }
 .flexRow {
+  margin-top: -70px;
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -635,17 +642,24 @@ img {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  min-width: 740px;
+  min-width: 760px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 5px;
-  -webkit-box-pack: distribute;
-  -moz-box-pack: distribute;
-  -o-box-pack: distribute;
-  -ms-flex-pack: distribute;
-  -webkit-justify-content: space-around;
-  justify-content: space-around;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 600px;
 }
 @media screen and (max-width: 760px) {
   .flexRow {
@@ -653,6 +667,14 @@ img {
   }
 }
 .photosImg {
+  border: 10px solid #fff;
+  margin: 70px 20px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 50%;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
@@ -660,16 +682,12 @@ img {
   -webkit-flex: 1 1 35%;
   -ms-flex: 1 1 35%;
   flex: 1 1 35%;
-  border: 10px solid #fff;
-  margin: 70px 35px 0;
-  max-width: 50%;
+}
+.photosImg img {
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  max-width: 100%;
   height: auto;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: inline-block;
-  -webkit-border-radius: 25px;
-  border-radius: 25px;
 }
 @media screen and (max-width: 760px) {
   .photosImg {
@@ -778,6 +796,9 @@ img {
   max-width: 900px;
   min-width: 640px;
   width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
   -o-box-orient: horizontal;
@@ -806,6 +827,8 @@ img {
 @media screen and (max-width: 760px) {
   .allMaps {
     min-width: 480px;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 .allMaps a {
@@ -817,6 +840,8 @@ img {
   -webkit-flex: 1 1 30%;
   -ms-flex: 1 1 30%;
   flex: 1 1 30%;
+  max-width: 95%;
+  margin: 0 auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -826,22 +851,25 @@ img {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  -webkit-box-align: stretch;
-  -moz-box-align: stretch;
-  -o-box-align: stretch;
-  -ms-flex-align: stretch;
-  -webkit-align-items: stretch;
-  align-items: stretch;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   -webkit-align-self: stretch;
   align-self: stretch;
   -ms-flex-item-align: stretch;
+  -webkit-box-pack: distribute;
+  -moz-box-pack: distribute;
+  -o-box-pack: distribute;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
   opacity: 0.7;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
   filter: alpha(opacity=70);
   outline: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   border: 5px solid #fff;
 }
 @media screen and (max-width: 760px) {
@@ -867,7 +895,8 @@ img {
   -webkit-align-self: center;
   align-self: center;
   -ms-flex-item-align: center;
-  max-width: 100%;
+  max-width: 95%;
+  margin: 0 auto;
   height: auto;
   display: inline-block;
 }
@@ -1319,7 +1348,7 @@ img {
 }
 #party .title {
   text-align: left;
-  min-width: 20em;
+  min-width: 800px;
 }
 #party .title ul {
   list-style-type: none;
@@ -1334,6 +1363,12 @@ img {
   display: -ms-flexbox;
   display: box;
   display: flex;
+  -webkit-box-align: baseline;
+  -moz-box-align: baseline;
+  -o-box-align: baseline;
+  -ms-flex-align: baseline;
+  -webkit-align-items: baseline;
+  align-items: baseline;
 }
 #party .title ul > li .startTime {
   font-family: monospace;
@@ -1350,9 +1385,9 @@ img {
   -moz-box-flex: 3;
   -o-box-flex: 3;
   box-flex: 3;
-  -webkit-flex: 3 0 auto;
-  -ms-flex: 3 0 auto;
-  flex: 3 0 auto;
+  -webkit-flex: 3 0 60%;
+  -ms-flex: 3 0 60%;
+  flex: 3 0 60%;
 }
 #party .title ul,
 #party .title p {
@@ -1425,11 +1460,47 @@ img {
   flex: 1 1 40%;
   display: block;
   min-height: 200px;
-  min-width: 300px;
+  min-width: 200px;
+  max-width: 40%;
   background: #fff url("svg/piggy.svg") center no-repeat;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   background-size: contain;
+}
+@media screen and (max-width: 940px) {
+  #page.parallax .title:not(.luckaKuba) {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    top: 200px;
+    left: 100px;
+    right: 100px;
+    max-width: auto;
+    width: auto;
+    min-width: 60%;
+  }
+  #page.parallax .title.titleBack {
+    left: 5%;
+    right: 5%;
+  }
+}
+@media screen and (max-width: 760px) {
+  #page.parallax .title:not(.luckaKuba) {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    top: 200px;
+    left: 50px;
+    right: 50px;
+    max-width: auto;
+  }
+  #page.parallax .clouds {
+    display: none;
+  }
 }
 @-moz-keyframes wiggles {
   0% {

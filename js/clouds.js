@@ -65,10 +65,10 @@
       el.onclick = function (e) {
         e.preventDefault();
         var hsh = el.getAttribute('href').split('#').pop();
+        scrollToHref(hsh);
         if (window.location.href.split('#').pop() === ('/' + hsh)) {
           return false;
         }
-        scrollToHref(hsh);
         window.location.hash = '/' + hsh;
       }
     })(el);

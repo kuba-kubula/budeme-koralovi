@@ -40,12 +40,13 @@ table{border-collapse:collapse;border-spacing:0}
 
 body
   a
-    color saturate(steelblue, 20)
+    color lighten(#450093, 20%)
     text-decoration underline
   a:hover
-    color darken(saturate(steelblue, 20), 20)
+    color darken(#450093, 10%)
 
 body
+  color #333
   background #fff
 
 .fix
@@ -83,26 +84,38 @@ body
     @media screen and (max-width:480px)
       flex 1 0 45%
     &:first-child
-      flex 0 1 2em
+    &:last-child
+      flex 1 1 2em
       font-size 26px
 
   a
     text-align center
     display block
-    background-color rgba(#fff, 0.95)
-    padding 10px 5px 7px
-    color #009933
+    background-color rgba(#fff, 1)
+    padding 12px 5px 10px
+    color #8214FF
     text-decoration none
-    border-bottom 3px solid rgba(#fff, 0.001)
+    position relative
     animate('border-bottom-color background-color')
+    &:after
+      content attr(text)
+      position absolute
+      left 0
+      top 100%
+      right 0
+      height 10px
+      animate(all)
+      background-color rgba(lighten(#D2ABFF, 40%), 0.5)
+
     &:active
     &:focus
     &:hover
     &:target
-      border-bottom-color steelblue
       outline none
-      background-color #eee
-      color steelblue
+      background-color lighten(#D2ABFF, 65%)
+      color #450093
+      &:after
+        background-color #450093
 
 
 .graphics
@@ -138,7 +151,6 @@ body
   overflow-y auto
   perspective 300px
   box-sizing border-box
-  padding-bottom 50px
   z-index 6
 
 .parallax__group
@@ -157,19 +169,19 @@ body
 
 .parallax__layer--fore
   transform translateZ(90px) scale(.7)
-  z-index 5
+  z-index 6
 
 .parallax__layer--base
   transform translateZ(0)
-  z-index 4
+  z-index 5
 
 .parallax__layer--back
   transform translateZ(-300px) scale(2)
-  z-index 3
+  z-index 2
 
 .parallax__layer--deep
   transform translateZ(-600px) scale(3)
-  z-index 2
+  z-index 1
 
 .debug
   position fixed
@@ -211,17 +223,23 @@ body
   background-color #ffffff
   transform translate(-50%, -50%)
   border-radius 30px
-  padding 0 0 0.5em
-  @media screen and (min-width:480px)
-    min-width 300px
-  @media screen and (min-width:760px)
+  padding 0 0 1em
+  max-width 99%
+  white-space normal
+
+  @media screen and (max-width:760px)
     min-width 500px
+  @media screen and (max-width:480px)
+    min-width 300px
 
   &.titleBg
     margin-left -20px
     margin-top -20px
     opacity 0.5
 
+  .imagesOnSide
+    margin-left 2em
+    margin-right 2em
 html
 body
   background #fff url(above-clouds-min.jpg) center bottom no-repeat
@@ -239,43 +257,56 @@ body
   .block
     line-height 1.0
 
+  .lucka
+  .kuba
+    font-size 400%
+
 .noWrap
   padding-top 10px
   display inline-block
   white-space nowrap
 
 .lucka
-.kuba
-  font-size 400%
-
-.lucka
+  // color #FF0063
   color #FF6666
 
 .kuba
+  // color #186DFF
   color #3399FF
 .block
   display block
 
 
 #top
-  z-index 2 /* slide over group 2 */
+  z-index 3 /* slide over group 2 */
 
 
 #whoweare
-  z-index 4 /* slide over group 2 */
+  z-index 6 /* slide over group 2 */
+  .parallax__layer--back
+  .parallax__layer--deep
+    z-index 3
 
 .title
   h2
-    padding 0.5em 0
-    margin 0 1em
-    border-bottom 1px solid rgba(#000, 0.05)
-
+    font-size 150%
+    padding 0.5em 0 0.35em
+    background-color rgba(#FF6D66, 0.05)
+    border-radius top 30px
+    border-bottom 1px solid #ccc
+    color lighten(#450093, 10%)
+    /#whoweare &
+      color darken(#FF6D66, 20%)
   p
     max-width 100%
     box-sizing border-box
     margin 0 auto
-    padding 0.5em 1em 0.5em
+    padding 0.5em 1em 0
 
+// #whoweare
+//   .title
+//     p
+//       padding
 img
   display block
   max-width 100%
@@ -287,7 +318,7 @@ img
   display flex
   flex-flow row
   flex-wrap wrap
-  min-width 680px
+  min-width 740px
   box-sizing border-box
   padding 0 5px
   justify-content space-around
@@ -295,8 +326,9 @@ img
     min-width 480px
 
 .photosImg
-  flex 1 1 45%
-  margin 10px 5px 0
+  flex 1 1 35%
+  border 10px solid rgba(#fff, 1)
+  margin 70px 35px 0
   max-width 50%
   height auto
   box-sizing border-box
@@ -309,15 +341,15 @@ img
   transform translate3d(0,0,0)
   position absolute
   pointer-events none
-  bottom 0
+  bottom -1px
   left 0
   z-index 11
   right 0
-  height 210px
+  opacity 1
+  height 220px
   background url('svg/cloud-center.svg') center bottom no-repeat
   background-size contain
   overflow hidden
-  border-bottom 1px solid #ccc
   @media screen and (max-width:640px)
     height 130px
 
@@ -342,15 +374,29 @@ img
   left auto
   right 0
 
-// #top
+.clouds.flipped
+  bottom auto
+  top -1px
+  transform rotateY(180deg) rotateX(180deg)
+  transform-origin center center
+  border-bottom 0
+  height 230px
 
 #info
   z-index 4 /* slide under groups 1 and 3 */
+  .parallax__layer--back
+  .parallax__layer--deep
+    z-index 3
+  .title.titleBack
+    margin-top 20px
+    background-color transparent
 
 #maps
-#maps2
-  z-index 3 /* slide over group 2 and 4 */
-
+#contact
+  z-index 4 /* slide over group 2 and 4 */
+  .parallax__layer--back
+  .parallax__layer--deep
+    z-index 3
 // #maps .parallax__layer--back
 //   z-index 3
 //   AIzaSyCdXDCC-ZXXpEOMMV1abxudnXDqi3m9TsE
@@ -432,15 +478,15 @@ img
     z-index 9999
     content attr(data-some)
     position absolute
-    top -30px
+    top 0
     line-height 40px
     text-align center
     left 0
     right 0
     height 40px
-    color #fff
+    color #000
     font-weight bold
-    background-color #000000
+    background-color rgba(#fff,0.8)
     font-size 24px
 
 
@@ -456,35 +502,34 @@ img
 
 @keyframes wiggles
   0%
-    transform translate3d(0, 0, -1.5px)
+    transform translate3d(0, 0, -0.5px)
   25%
-    transform translate3d(0, 0, -5px)
+    transform translate3d(0, 0, -1.5px)
   50%
-    transform translate3d(0, 0, -1.5px)
+    transform translate3d(0, 0, -0.5px)
   75%
-    transform translate3d(0, 0, -5px)
-  to
     transform translate3d(0, 0, -1.5px)
+  to
+    transform translate3d(0, 0, -0.5px)
 
 @keyframes antiwiggles
   0%
-    transform translate3d(0, 0, 1.5px)
+    transform translate3d(0, 0, 0.5px)
   25%
-    transform translate3d(0, 0, 5px)
+    transform translate3d(0, 0, 1.5px)
   50%
-    transform translate3d(0, 0, 1.5px)
+    transform translate3d(0, 0, 0.5px)
   75%
-    transform translate3d(0, 0, 5px)
-  to
     transform translate3d(0, 0, 1.5px)
+  to
+    transform translate3d(0, 0, 0.5px)
 
 .containsPhotosAll
-  perspective 300px
+  perspective 2500px
   position absolute
   left 0
   top 0
   right 0
-  overflow visible
 
 .photosAll
   transform translate3d(0, 0, -1.5px)
@@ -502,6 +547,18 @@ img
   flex-flow row
   flex-wrap wrap
   z-index 1
+  &:after
+    transform-style flat
+    z-index 1
+    content ''
+    position absolute
+    top -150px
+    left 0
+    right 0
+    bottom -50px
+    background-color rgba(#fff, 0.25)
+    transform translate3d(0,100px,5px)
+    // animation antiwiggles 3s ease 4s infinite normal forwards
 
 .photosAll div
   flex 1 1 15%
@@ -510,8 +567,9 @@ img
   background-size contain
   margin 30px 20px 0
   min-height 320px
+  position relative
   opacity 1
-  // animation antiwiggles 3s ease 4s infinite forwards
+  // animation antiwiggles 3s ease 4s infinite normal forwards
   transform translate3d(0, 0, 1.5px)
 
 .photosAll div
@@ -571,14 +629,16 @@ for i in (0..9) // '11' '12' '13' '14' '15' '16')
     min-width 20em
     ul
       list-style-type none
-      padding 0.5em
+      padding 0.5em 1em 0
       margin 0
     ul > li
+      padding 0.2em 0 0
       display flex
       .startTime
-        flex 1 1 4em
+        font-family monospace
+        flex 0 1 4em
       span
-        flex 3 1 70%
+        flex 3 0 auto
     ul
     p
       font-size 16px

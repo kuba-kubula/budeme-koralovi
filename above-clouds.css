@@ -372,6 +372,7 @@ body a:hover {
 .parallax {
   height: 500px;
   height: 100vh;
+  oveflow: hidden;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-perspective: 300px;
@@ -387,6 +388,7 @@ body a:hover {
   position: relative;
   height: 500px;
   height: 100vh;
+  width: 100vw;
   overflow: visible;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -396,7 +398,7 @@ body a:hover {
 }
 @media screen and (max-height: 800px) {
   .parallax__group {
-    height: 800px;
+    min-height: 800px;
   }
 }
 .parallax__layer {
@@ -405,6 +407,7 @@ body a:hover {
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100vw;
 }
 .parallax__layer--fore {
   -webkit-transform: translateZ(90px) scale(0.7);
@@ -813,7 +816,7 @@ img {
 }
 @media screen and (max-width: 760px) {
   .allMaps {
-    min-width: 480px;
+    min-width: 100%;
     width: 50%;
     margin: 0 auto;
   }
@@ -865,9 +868,9 @@ img {
     -moz-box-flex: 1;
     -o-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 40%;
-    -ms-flex: 1 1 40%;
-    flex: 1 1 40%;
+    -webkit-flex: 0 1 47%;
+    -ms-flex: 0 1 47%;
+    flex: 0 1 47%;
   }
 }
 .allMaps a:hover,
@@ -991,6 +994,7 @@ img {
   -ms-perspective: 2500px;
   perspective: 2500px;
   position: absolute;
+  max-width: 100%;
   left: 0;
   top: 0;
   right: 0;
@@ -1149,20 +1153,27 @@ img {
     max-heigth: 320px;
     min-height: 160px;
     max-width: 320px;
+    min-width: 240px;
   }
 }
 @media screen and (max-width: 760px) {
   .photosAll div,
   .photosAll span {
-    -webkit-box-flex: 2;
-    -moz-box-flex: 2;
-    -o-box-flex: 2;
-    box-flex: 2;
-    -webkit-flex: 2 1 auto;
-    -ms-flex: 2 1 auto;
-    flex: 2 1 auto;
-    max-heigth: 240px;
-    max-width: 240px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 45%;
+    -ms-flex: 1 1 45%;
+    flex: 1 1 45%;
+    -webkit-align-self: stretch;
+    align-self: stretch;
+    -ms-flex-item-align: stretch;
+    min-height: 10px;
+    min-width: 10px;
+    max-heigth: 640px;
+    max-width: 100%;
+    margin: 10px 2% 0;
   }
 }
 .photosAll div:nth-of-type(30n+0) {

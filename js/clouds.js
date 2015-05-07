@@ -17,6 +17,10 @@
     if (!bodyH) {
       bodyH = document.querySelector('html').offsetHeight;
     }
+    bodyH = parseInt(bodyH, 10);
+    if (bodyH < 800) {
+      bodyH = 800;
+    }
     howMuch = 0;
     if (bodyH) {
       howMuch = Math.floor(offTop / bodyH) * bodyH;

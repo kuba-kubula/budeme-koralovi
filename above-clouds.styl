@@ -252,7 +252,7 @@ body
   @media screen and (max-width:760px)
     min-width 500px
   @media screen and (max-width:480px)
-    min-width 300px
+    min-width 0
 
   &.titleBg
     margin-left -20px
@@ -542,7 +542,6 @@ img
     background-color rgba(#fff,0.8)
     font-size 24px
 
-
 .lightbox:target
   opacity 1
   outline none
@@ -612,7 +611,7 @@ img
     left 0
     right 0
     bottom -50px
-    background-color rgba(#fff, 0.33)
+    background-color rgba(#fff, 0.44)
     transform translate3d(0,100px,5px)
     // animation antiwiggles 3s ease 4s infinite normal forwards
 
@@ -623,15 +622,17 @@ img
   background-position center center
   background-size contain
   margin 28px 20px 0
-  min-height 320px
+  min-height 240px
   position relative
-  opacity 0.7
+  opacity 1
   display block
   // animation antiwiggles 3s ease 4s infinite normal forwards
   transform translate3d(0, 0, 1.5px)
 
 .photosAll div
 .photosAll span
+  @media screen and (min-height:600px) and (min-width:600px)
+    margin-bottom 20px
   opacity 0
   animation-name pulse,antiwiggles
   animation-duration 3s,3s
@@ -646,28 +647,28 @@ img
   0%
     opacity 0
   100%
-    opacity 0.7
+    opacity 1
 
 $all = 10 + 10 + 10
 
 $delay = 0
 
-.photosAll div
-.photosAll span
-  // animation pulse 3s ease 1s 1 forwards
-  @media screen and (max-width:1160px)
+@media screen and (min-width:761px)
+  #page .photosAll div
+  #page .photosAll span
     flex 1 1 auto
     max-heigth 320px
     min-height 160px
     max-width 320px
     min-width 240px
-  @media screen and (max-width:760px)
-    flex 1 1 45%
-    align-self stretch
-    min-height 10px
-    min-width 10px
-    max-heigth 640px
-    max-width 100%
+@media screen and (max-width:760px)
+  #page .photosAll div
+  #page .photosAll span
+    flex 1 1 36%
+    min-height 240px
+    max-heigth 320px
+    min-width 160px
+    max-width 320px
     margin 10px 2% 0
 
 for i in (0..9) // '11' '12' '13' '14' '15' '16')
@@ -783,6 +784,9 @@ for i in (1..6)
   body
     font-size 12px
 
+  .lightbox a:after
+    font-size 14px
+
   #page.parallax
     font-size 100%
     .title
@@ -836,3 +840,15 @@ for i in (1..6)
           padding-bottom 7px
           line-height 18px
 
+.colorOne
+.colorTwo
+  display inline-block
+  size 17px
+  vertical-align middle
+  background-color #32CD32
+  position relative
+
+  &:hover
+    transform scale(10)
+.colorOne
+  background-color #5F021F

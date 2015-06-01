@@ -624,6 +624,7 @@ img {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   min-width: 760px;
+  min-height: 600px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -634,13 +635,12 @@ img {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -o-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  height: 600px;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
 @media screen and (max-width: 760px) {
   .flexRow {
@@ -649,20 +649,20 @@ img {
 }
 .photosImg {
   border: 10px solid #fff;
-  margin: 70px 20px 0;
+  margin: 70px auto 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  max-width: 50%;
+  max-width: 45%;
   -webkit-border-radius: 15px;
   border-radius: 15px;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
   box-flex: 1;
-  -webkit-flex: 1 1 35%;
-  -ms-flex: 1 1 35%;
-  flex: 1 1 35%;
+  -webkit-flex: 0 1 40%;
+  -ms-flex: 0 1 40%;
+  flex: 0 1 40%;
 }
 .photosImg img {
   -webkit-border-radius: 6px;
@@ -678,6 +678,7 @@ img {
 .instructions {
   padding: 0 10px;
   text-align: left;
+  max-width: 800px;
 }
 .instructions h3 {
   font-weight: bold;
@@ -783,8 +784,8 @@ img {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  max-width: 900px;
-  min-width: 640px;
+  max-width: 800px;
+  min-width: 500px;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -817,39 +818,27 @@ img {
 @media screen and (max-width: 760px) {
   .allMaps {
     min-width: 100%;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
   }
 }
 .allMaps a {
   cursor: pointer;
+  max-width: 30%;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
   box-flex: 1;
-  -webkit-flex: 1 1 30%;
-  -ms-flex: 1 1 30%;
-  flex: 1 1 30%;
-  max-width: 95%;
+  -webkit-flex: 0 1 30%;
+  -ms-flex: 0 1 30%;
+  flex: 0 1 30%;
   margin: 0 auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -o-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-align-self: stretch;
-  align-self: stretch;
-  -ms-flex-item-align: stretch;
+  -webkit-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
   -webkit-box-pack: distribute;
   -moz-box-pack: distribute;
   -o-box-pack: distribute;
@@ -864,6 +853,7 @@ img {
 }
 @media screen and (max-width: 760px) {
   .allMaps a {
+    max-width: 95%;
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     -o-box-flex: 1;
@@ -882,9 +872,6 @@ img {
   filter: none;
 }
 .allMaps img {
-  -webkit-align-self: center;
-  align-self: center;
-  -ms-flex-item-align: center;
   max-width: 95%;
   margin: 0 auto;
   height: auto;
@@ -896,7 +883,7 @@ img {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   z-index: 9999;
-  top: -200%;
+  top: -100%;
   left: -100%;
   width: 100%;
   height: 100%;
@@ -929,23 +916,24 @@ img {
   -webkit-align-items: center;
   align-items: center;
   text-align: center;
+  -webkit-box-pack: distribute;
+  -moz-box-pack: distribute;
+  -o-box-pack: distribute;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  max-width: 100%;
 }
 .lightbox a {
   text-decoration: none;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
   box-flex: 1;
-  -webkit-flex: 1 1 100%;
-  -ms-flex: 1 1 100%;
-  flex: 1 1 100%;
+  -webkit-flex: 0 1 100%;
+  -ms-flex: 0 1 100%;
+  flex: 0 1 100%;
   -webkit-box-align: center;
   -moz-box-align: center;
   -o-box-align: center;
@@ -955,18 +943,9 @@ img {
   z-index: 9999;
   line-height: 1;
   position: relative;
+  max-width: 100%;
 }
 .lightbox img {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -o-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex: 1 0 100%;
-  -ms-flex: 1 0 100%;
-  flex: 1 0 100%;
-  -webkit-align-self: center;
-  align-self: center;
-  -ms-flex-item-align: center;
   position: relative;
   margin: 0 auto;
   display: block;
@@ -982,7 +961,7 @@ img {
   line-height: 40px;
   text-align: center;
   left: 0;
-  right: 0;
+  width: 100%;
   height: 40px;
   color: #000;
   font-weight: bold;
